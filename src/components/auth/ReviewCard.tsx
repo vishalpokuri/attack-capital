@@ -21,8 +21,8 @@ function ReviewCard() {
               <Quote className="h-6 w-6 text-rose-500 flex-shrink-0 mt-1" />
               <div>
                 <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                  "MedAI has revolutionized how I manage patient consultations.
-                  The AI insights help me provide better, faster diagnoses."
+                  {`MedAI has revolutionized how I manage patient consultations.
+                  The AI insights help me provide better, faster diagnoses.`}
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="flex text-yellow-400">
