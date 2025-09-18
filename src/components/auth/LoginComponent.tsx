@@ -11,10 +11,9 @@ interface LoginFormData {
   password: string;
 }
 
-interface AuthResponse {
-  access_token: string;
-  token_type: string;
-}
+// logs -> all the invocations
+// appointments -> all the appointments
+// calllogs -> call logs
 
 function LoginComponent() {
   const router = useRouter();
@@ -32,28 +31,14 @@ function LoginComponent() {
 
     try {
       setIsLoading(true);
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: form.username,
-            password: form.password,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        const data: AuthResponse = await response.json();
-        localStorage.setItem("accessToken", data.access_token);
-        toast.success("Login successful!");
-        router.push("/dashboard");
+      // Mock login for development
+      if (form.username === "alice" && form.password === "passwordA") {
+        setTimeout(() => {
+          toast.success("Login successful!");
+          router.push("/dashboard");
+        }, 1500);
       } else {
-        const errorData = await response.json();
-        toast.error(errorData.message || "Login failed");
+        toast.error("Invalid credentials");
       }
     } catch (error) {
       toast.error("Network error. Please try again.");

@@ -50,10 +50,10 @@ function LocalHeader() {
 
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/auth">Sign In</Link>
+              <Link href="/auth/login">Sign In</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/dashboard">Get Started</Link>
+              <Link href="/auth/register">Get Started</Link>
             </Button>
           </div>
         </div>
